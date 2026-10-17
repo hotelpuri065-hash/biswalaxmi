@@ -1,0 +1,11 @@
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Force HTTPS and non-www in a single redirect
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://thebiswalaxmiinn.in%{REQUEST_URI} [L,R=301,NE]
+</IfModule>
